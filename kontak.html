@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak | Azat Garage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+     <style>
+        .heading-font { font-family: 'Syne', sans-serif; }
+        body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: white; }
+        
+        .nav-link { position: relative; transition: all 0.3s ease; }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 2px;
+            bottom: -4px; left: 0; background-color: #eab308; transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #ffffff, #a1a1a1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Animasi halus untuk angka statistik */
+        .stat-card:hover { transform: translateY(-10px); transition: all 0.4s ease; }
+    </style>
+</head>
+<body class="overflow-x-hidden bg-[#0a0a0a]">
+
+    <nav class="fixed w-full z-[100] px-8 py-6 flex justify-between items-center bg-black/60 backdrop-blur-xl border-b border-white/5" id="navbar">
+        <div class="heading-font text-2xl font-extrabold tracking-tighter">
+            AZAT<span class="text-yellow-500 italic">GARAGE</span>
+        </div>
+        
+        <div class="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-[0.2em]">
+            <a href="index.html" class="nav-link text-yellow-500">Beranda</a>
+            <a href="tentang.html" class="nav-link">Tentang Kami</a>
+            <a href="layanan.html" class="nav-link">Layanan</a>
+            <a href="galeri.html" class="nav-link">Galeri/a>
+            <a href="kontak.html" class="px-5 py-2 border border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black transition-all duration-300">Hubungi Kami</a>
+        </div>
+
+        <button class="md:hidden text-white" id="menu-btn">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+    </nav>
+
+    <div id="mobile-menu" class="fixed inset-0 z-[99] bg-black flex flex-col items-center justify-center space-y-8 -translate-y-full transition-transform duration-700 md:hidden">
+        <a href="index.html" class="heading-font text-4xl">BERANDA</a>
+        <a href="tentang.html" class="heading-font text-4xl">TENTANG</a>
+        <a href="layanan.html" class="heading-font text-4xl">LAYANAN</a>
+        <a href="galeri.html" class="heading-font text-4xl">GALERI</a>
+        <a href="kontak.html" class="heading-font text-4xl text-yellow-500">KONTAK</a>
+    </div>
+
+    <section class="pt-32 pb-16 px-6 max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+            
+            <div data-aos="fade-up">
+                <span class="text-yellow-500 text-[9px] font-bold uppercase tracking-[0.3em] mb-2 block">Connect With Us</span>
+                <h1 class="heading-font text-4xl md:text-5xl font-bold uppercase leading-tight mb-4 italic">
+                    REACH THE <br> <span class="text-transparent" style="-webkit-text-stroke: 1px white;">EXCELLENCE.</span>
+                </h1>
+                <p class="text-gray-400 text-sm mb-8 leading-relaxed max-w-md">Silakan hubungi kami untuk reservasi atau konsultasi mengenai modifikasi kendaraan Anda.</p>
+
+                <div class="glass-card p-6 rounded-2xl mb-6">
+                    <div class="space-y-3">
+                        <input type="text" id="sender-name" placeholder="Nama Lengkap" class="w-full bg-white/5 border border-white/10 p-3 rounded-lg text-xs focus:border-yellow-500 outline-none">
+                        <textarea id="sender-message" placeholder="Tulis keperluan Anda..." rows="2" class="w-full bg-white/5 border border-white/10 p-3 rounded-lg text-xs focus:border-yellow-500 outline-none"></textarea>
+                        <button onclick="sendToWA()" class="btn-wa w-full py-3 text-black font-bold uppercase text-[10px] tracking-widest rounded-lg">
+                            Kirim ke WhatsApp <i class="fa-brands fa-whatsapp ml-1 text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-4">
+                    <div class="flex items-center space-x-3 text-xs">
+                        <i class="fa-solid fa-phone text-yellow-500"></i>
+                        <span class="font-semibold text-gray-300">+62 812 3456 7890</span>
+                    </div>
+                    <div class="flex items-center space-x-3 text-xs border-l border-white/10 pl-4">
+                        <i class="fa-solid fa-clock text-yellow-500"></i>
+                        <span class="font-semibold text-gray-300">Mon - Sat, 09:00 - 18:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="glass-card p-2 rounded-3xl overflow-hidden shadow-lg">
+                    <div class="w-full h-80 rounded-2xl overflow-hidden grayscale contrast-110 brightness-75 hover:grayscale-0 transition-all duration-700">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15866.417254508216!2d106.82255740000001!3d-6.1836245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f431477df607%3A0xf639e44f849a0b94!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1700000000000" 
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <a href="https://maps.google.com" target="_blank" class="flex items-center justify-between bg-white px-6 py-4 rounded-2xl hover:bg-yellow-500 transition-colors group">
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-black p-2 rounded-lg text-white text-sm">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <span class="text-black font-bold text-xs uppercase tracking-tight">Klik Untuk Navigasi Ke Lokasi</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-black/30 group-hover:text-black transition text-xs"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="py-10 text-center border-t border-white/5">
+        <p class="text-[10px] tracking-[0.5em] text-gray-600 uppercase">&copy; 2026 Azat Garage. Keunggulan Tanpa Kompromi.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        // Navbar Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            window.scrollY > 50 ? nav.classList.add('nav-scrolled') : nav.classList.remove('nav-scrolled');
+        });
+
+        // Menu Mobile Toggle
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const close = document.getElementById('close-menu');
+
+        btn.onclick = () => { menu.classList.remove('opacity-0', 'pointer-events-none'); };
+        close.onclick = () => { menu.classList.add('opacity-0', 'pointer-events-none'); };
+
+        // WA Function
+        function sendToWA() {
+            const name = document.getElementById('sender-name').value;
+            const msg = document.getElementById('sender-message').value;
+            const phone = "6281234567890"; // Ganti dengan nomor asli
+            if(!name || !msg) { alert("Lengkapi data!"); return; }
+            window.open(`https://wa.me/${phone}?text=Halo%20Azat%20Garage,%20Saya%20${name}.%20${msg}`, '_blank');
+        }
+    </script>
+</body>
+</html>
+
+</section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

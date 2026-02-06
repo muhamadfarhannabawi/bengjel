@@ -1,0 +1,61 @@
+/* Custom Variable & Fonts */
+:root {
+    --accent: #eab308;
+    --bg-dark: #080808;
+}
+
+body {
+    background-color: var(--bg-dark);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* Efek Tekstur Halus di Background */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 999;
+}
+
+/* Tipografi Khusus */
+.heading-stroke {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+    color: transparent;
+}
+
+/* Kartu Efek Kaca */
+.glass-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    background: rgba(234, 179, 8, 0.02);
+}
+
+/* Navigasi saat Scroll */
+.nav-blur {
+    background: rgba(8, 8, 8, 0.8) !important;
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+/* Animasi Custom */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-in {
+    animation: fadeInUp 0.8s ease forwards;
+}

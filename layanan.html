@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layanan Eksklusif | Azat Garage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .heading-font { font-family: 'Syne', sans-serif; }
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: white; overflow-x: hidden; }
+        
+        .glass-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(234, 179, 8, 0.5);
+            transform: translateY(-12px);
+            background: linear-gradient(135deg, rgba(234, 179, 8, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+        }
+
+        .service-number {
+            position: absolute;
+            top: -20px;
+            right: -10px;
+            font-size: 120px;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.03);
+            font-family: 'Syne', sans-serif;
+            transition: all 0.5s ease;
+            z-index: 0;
+        }
+
+        .nav-link { position: relative; transition: 0.3s; }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 2px;
+            bottom: -4px; left: 0; background: #eab308; transition: 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+        
+        /* Mobile Menu Animation */
+        #mobile-menu {
+            transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #eab308; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed w-full z-[110] px-8 py-6 flex justify-between items-center bg-black/60 backdrop-blur-xl border-b border-white/5 transition-all duration-300" id="navbar">
+        <div class="heading-font text-2xl font-extrabold tracking-tighter uppercase">
+            AZAT<span class="text-yellow-500 italic">GARAGE</span>
+        </div>
+
+        <div class="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-[0.2em]">
+            <a href="index.html" class="nav-link text-yellow-500">Beranda</a>
+            <a href="tentang.html" class="nav-link">Tentang Kami</a>
+            <a href="layanan.html" class="nav-link">Layanan</a>
+            <a href="galeri.html" class="nav-link">Galeri/a>
+            <a href="kontak.html" class="px-5 py-2 border border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black transition-all duration-300">Hubungi Kami</a>
+        </div>
+
+        <button class="md:hidden text-white" id="menu-btn">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+    </nav>
+
+    <div id="mobile-menu" class="fixed inset-0 z-[99] bg-black flex flex-col items-center justify-center space-y-8 -translate-y-full transition-transform duration-700 md:hidden">
+        <a href="index.html" class="heading-font text-4xl">BERANDA</a>
+        <a href="tentang.html" class="heading-font text-4xl ">TENTANG</a>
+        <a href="layanan.html" class="heading-font text-4xl text-yellow-500">LAYANAN</a>
+        <a href="galeri.html" class="heading-font text-4xl">GALERI</a>
+        <a href="kontak.html" class="heading-font text-4xl">KONTAK</a>
+    </div>
+
+    <section class="pt-48 pb-20 px-6 max-w-7xl mx-auto relative">
+        <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-yellow-500/5 blur-[120px] rounded-full -z-10"></div>
+        
+        <div class="text-center mb-24" data-aos="fade-up">
+            <span class="text-yellow-500 font-bold tracking-[0.5em] uppercase text-[10px]">Apa Yang Kami Kerjakan</span>
+            <h1 class="heading-font text-5xl md:text-8xl font-extrabold uppercase mt-4 mb-6 leading-none">
+                LAYANAN <span class="italic text-transparent" style="-webkit-text-stroke: 1px white;">TERBAIK</span>
+            </h1>
+            <p class="text-gray-500 max-w-xl mx-auto text-sm leading-relaxed tracking-wide">
+                Solusi otomotif menyeluruh mulai dari estetika luar hingga performa mesin, dikerjakan dengan standar presisi tinggi.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="glass-card p-12 rounded-[2rem]" data-aos="fade-up">
+                <span class="service-number">01</span>
+                <div class="relative z-10">
+                    <div class="flex justify-between items-start mb-12">
+                        <div class="p-4 bg-yellow-500/10 rounded-2xl">
+                            <i class="fa-solid fa-spray-can text-4xl text-yellow-500"></i>
+                        </div>
+                        <span class="text-[9px] border border-yellow-500/30 text-yellow-500 px-4 py-1.5 rounded-full font-black tracking-widest uppercase">Estetika</span>
+                    </div>
+                    <h3 class="heading-font text-3xl mb-4 uppercase italic tracking-tighter">Pengecatan Velg & Body</h3>
+                    <p class="text-gray-400 text-sm leading-loose mb-8">Ubah tampilan kendaraan Anda dengan hasil cat yang halus dan tahan lama. Kami menggunakan teknik oven untuk hasil maksimal.</p>
+                    <ul class="grid grid-cols-1 gap-4 text-xs font-semibold tracking-wider text-gray-300 uppercase">
+                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-yellow-500 mr-3 text-base"></i> Cat Ulang Body (Full / Sisip)</li>
+                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-yellow-500 mr-3 text-base"></i> Velg Warna Candy, Matte & Glossy</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="glass-card p-12 rounded-[2rem]" data-aos="fade-up" data-aos-delay="100">
+                <span class="service-number">02</span>
+                <div class="relative z-10">
+                    <div class="p-4 bg-yellow-500/10 rounded-2xl mb-12 inline-block">
+                        <i class="fa-solid fa-oil-can text-4xl text-yellow-500"></i>
+                    </div>
+                    <h3 class="heading-font text-3xl mb-4 uppercase italic tracking-tighter">Servis & Ganti Oli</h3>
+                    <p class="text-gray-400 text-sm leading-loose mb-8">Perawatan rutin mesin agar performa tetap responsif dan konsumsi bahan bakar tetap efisien.</p>
+                    <ul class="grid grid-cols-1 gap-4 text-xs font-semibold tracking-wider text-gray-300 uppercase">
+                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-yellow-500 mr-3 text-base"></i> Ganti Oli Mesin & Transmisi</li>
+                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-yellow-500 mr-3 text-base"></i> Tune Up & Cek Aki</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="glass-card p-12 rounded-[2rem]" data-aos="fade-up">
+                <span class="service-number">03</span>
+                <div class="relative z-10">
+                    <div class="p-4 bg-yellow-500/10 rounded-2xl mb-12 inline-block">
+                        <i class="fa-solid fa-music text-4xl text-yellow-500"></i>
+                    </div>
+                    <h3 class="heading-font text-3xl mb-4 uppercase italic tracking-tighter">Sistem Audio & Box</h3>
+                    <p class="text-gray-400 text-sm leading-loose mb-8">Instalasi suara berkualitas premium. Kami ahli dalam pembuatan box speaker kustom yang rapi dan artistik.</p>
+                    <ul class="grid grid-cols-1 gap-4 text-xs font-semibold tracking-wider text-gray-300 uppercase">
+                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-yellow-500 mr-3 text-base"></i> Pembuatan Box Speaker Kustom</li>
+                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-yellow-500 mr-3 text-base"></i> Instalasi Subwoofer & Power</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="glass-card p-12 rounded-[2rem]" data-aos="fade-up" data-aos-delay="100">
+                <span class="service-number">04</span>
+                <div class="relative z-10">
+                    <div class="p-4 bg-yellow-500/10 rounded-2xl mb-12 inline-block">
+                        <i class="fa-solid fa-screwdriver-wrench text-4xl text-yellow-500"></i>
+                    </div>
+                    <h3 class="heading-font text-3xl mb-4 uppercase italic tracking-tighter">Ban & Layanan Lainnya</h3>
+                    <p class="text-gray-400 text-sm leading-loose mb-8">Melayani kebutuhan darurat dan modifikasi ringan harian untuk menjamin keamanan berkendara Anda.</p>
+                    <ul class="grid grid-cols-1 gap-4 text-xs font-semibold tracking-wider text-gray-300 uppercase">
+                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-yellow-500 mr-3 text-base"></i> Tambal Ban Cepat & Aman</li>
+                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-yellow-500 mr-3 text-base"></i> Kelistrikan & Lampu</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 text-center border-t border-white/5 bg-gradient-to-b from-transparent to-yellow-500/5">
+        <h2 class="heading-font text-2xl md:text-4xl mb-8 uppercase tracking-tighter italic">Punya Permintaan Khusus?</h2>
+        <a href="https://wa.me/628123456789" class="inline-block bg-yellow-500 text-black px-12 py-4 font-black uppercase text-xs tracking-widest hover:bg-white hover:scale-110 transition-all duration-300 rounded-full">Hubungi Lewat WhatsApp</a>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerSpans = document.querySelectorAll('#hamburger span');
+
+        menuBtn.addEventListener('click', () => {
+            // Toggle Menu Overlay
+            mobileMenu.classList.toggle('-translate-y-full');
+            mobileMenu.classList.toggle('translate-y-0');
+
+            // Hamburger Animation
+            hamburgerSpans[0].classList.toggle('rotate-45');
+            hamburgerSpans[0].classList.toggle('translate-y-[9px]');
+            hamburgerSpans[1].classList.toggle('opacity-0');
+            hamburgerSpans[2].classList.toggle('-rotate-45');
+            hamburgerSpans[2].classList.toggle('-translate-y-[9px]');
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) nav.classList.add('bg-black/90', 'py-4');
+            else nav.classList.remove('bg-black/90', 'py-4');
+        });
+    </script>
+    <footer class="py-10 text-center border-t border-white/5">
+        <p class="text-[10px] tracking-[0.5em] text-gray-600 uppercase">&copy; 2026 Azat Garage. Keunggulan Tanpa Kompromi.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azat Garage | Restorasi & Performa Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .heading-font { font-family: 'Syne', sans-serif; }
+        body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: white; }
+        
+        .nav-link { position: relative; transition: all 0.3s ease; }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 2px;
+            bottom: -4px; left: 0; background-color: #eab308; transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #ffffff, #a1a1a1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Animasi halus untuk angka statistik */
+        .stat-card:hover { transform: translateY(-10px); transition: all 0.4s ease; }
+    </style>
+</head>
+<body class="overflow-x-hidden bg-[#0a0a0a]">
+
+    <nav class="fixed w-full z-[100] px-8 py-6 flex justify-between items-center bg-black/60 backdrop-blur-xl border-b border-white/5" id="navbar">
+        <div class="heading-font text-2xl font-extrabold tracking-tighter">
+            AZAT<span class="text-yellow-500 italic">GARAGE</span>
+        </div>
+        
+        <div class="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-[0.2em]">
+            <a href="index.html" class="nav-link text-yellow-500">Beranda</a>
+            <a href="tentang.html" class="nav-link">Tentang Kami</a>
+            <a href="layanan.html" class="nav-link">Layanan</a>
+            <a href="galeri.html" class="nav-link">Galeri/a>
+            <a href="kontak.html" class="px-5 py-2 border border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black transition-all duration-300">Hubungi Kami</a>
+        </div>
+
+        <button class="md:hidden text-white" id="menu-btn">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+    </nav>
+
+    <div id="mobile-menu" class="fixed inset-0 z-[99] bg-black flex flex-col items-center justify-center space-y-8 -translate-y-full transition-transform duration-700 md:hidden">
+        <a href="index.html" class="heading-font text-4xl">BERANDA</a>
+        <a href="tentang.html" class="heading-font text-4xl  text-yellow-500">TENTANG</a>
+        <a href="layanan.html" class="heading-font text-4xl">LAYANAN</a>
+        <a href="galeri.html" class="heading-font text-4xl">GALERI</a>
+        <a href="kontak.html" class="heading-font text-4xl">KONTAK</a>
+    </div>
+
+    <header class="relative h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+        <div class="absolute w-[500px] h-[500px] bg-yellow-500/10 blur-[120px] rounded-full -z-10"></div>
+        <h1 class="heading-font text-5xl md:text-9xl mb-6 tracking-tighter leading-none" data-aos="fade-up">
+            DEFINISI <br> <span class="italic text-yellow-500">KESEMPURNAAN.</span>
+        </h1>
+        <p class="text-gray-400 max-w-2xl tracking-[0.3em] uppercase text-[10px] md:text-xs leading-loose" data-aos="fade-up" data-aos-delay="300">
+            Bengkel Spesialis Pengecatan, Restorasi, dan Optimalisasi Mesin di Indonesia.
+        </p>
+    </header>
+
+    <section class="py-20 border-y border-white/5 bg-white/5">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="heading-font text-4xl text-yellow-500">500+</h3>
+                <p class="text-[10px] uppercase tracking-widest text-gray-500 mt-2">Proyek Selesai</p>
+            </div>
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="heading-font text-4xl text-yellow-500">100%</h3>
+                <p class="text-[10px] uppercase tracking-widest text-gray-500 mt-2">Kepuasan Klien</p>
+            </div>
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                <h3 class="heading-font text-4xl text-yellow-500">12+</h3>
+                <p class="text-[10px] uppercase tracking-widest text-gray-500 mt-2">Teknisi Ahli</p>
+            </div>
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
+                <h3 class="heading-font text-4xl text-yellow-500">5th</h3>
+                <p class="text-[10px] uppercase tracking-widest text-gray-500 mt-2">Garansi Pengecatan</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-20 items-start">
+            
+            <div data-aos="fade-right">
+                <span class="text-yellow-500 font-bold tracking-[0.4em] uppercase text-xs">Mahakarya Otomotif</span>
+                <h2 class="heading-font text-5xl md:text-7xl mt-6 mb-10 leading-tight">Cerita <br><span class="italic text-gray-500">Dibalik Layar.</span></h2>
+                <div class="space-y-6 text-gray-400 text-lg leading-relaxed font-light">
+                    <p>
+                        Lahir dari obsesi terhadap detail, <span class="text-white font-semibold underline decoration-yellow-500/50">Azat Garage</span> bukan sekadar bengkel. Kami adalah studio seni bagi kendaraan Anda.
+                    </p>
+                    <p>
+                        Kami memahami bahwa kendaraan adalah refleksi diri. Itulah mengapa setiap pengerjaan—mulai dari pengecatan hingga tuning mesin—dilakukan dengan standar kompetisi internasional.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid gap-6" data-aos="fade-left">
+                <div class="glass p-10 group hover:border-yellow-500/50 transition-all">
+                    <h4 class="heading-font text-2xl mb-4 flex items-center">
+                        <span class="w-8 h-[1px] bg-yellow-500 mr-4"></span> VISI
+                    </h4>
+                    <p class="text-gray-400 italic leading-relaxed">
+                        "Menetapkan standar baru dalam industri estetika otomotif Indonesia melalui inovasi teknologi dan keahlian tangan yang tak tertandingi."
+                    </p>
+                </div>
+
+                <div class="glass p-10 group hover:border-yellow-500/50 transition-all">
+                    <h4 class="heading-font text-2xl mb-6 flex items-center">
+                        <span class="w-8 h-[1px] bg-yellow-500 mr-4"></span> MISI KAMI
+                    </h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex items-start">
+                            <span class="text-yellow-500 mr-3">01.</span>
+                            Menggunakan material cat dan suku cadang kelas dunia untuk daya tahan maksimal.
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-500 mr-3">02.</span>
+                            Memberikan edukasi transparan kepada setiap pemilik kendaraan mengenai proses restorasi.
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-500 mr-3">03.</span>
+                            Menggabungkan teknologi presisi dengan seni manual (hand-crafted) yang teliti.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="py-10 text-center border-t border-white/5">
+        <p class="text-[10px] tracking-[0.5em] text-gray-600 uppercase">&copy; 2026 Azat Garage. Keunggulan Tanpa Kompromi.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('-translate-y-full');
+            menu.classList.toggle('translate-y-0');
+        });
+    </script>
+</body>
+</html>

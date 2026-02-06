@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZAT GARAGE — Studio Otomotif Artisanal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .heading-font { font-family: 'Syne', sans-serif; }
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: white; }
+        
+        /* Gaya Navigasi */
+        .nav-scrolled { background: rgba(5,5,5,0.9); backdrop-filter: blur(20px); padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+        /* Tipografi */
+        .text-stroke { -webkit-text-stroke: 1px rgba(255,255,255,0.3); color: transparent; transition: 0.5s; }
+        .text-stroke:hover { -webkit-text-stroke: 1px #eab308; }
+
+        /* Kartu Kaca & Latar Belakang */
+        .glass-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); transition: 0.5s; }
+        .glass-card:hover { background: rgba(234, 179, 8, 0.05); border-color: #eab308; transform: translateY(-10px); }
+
+        /* Animasi Teks Berjalan (Marquee) */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-content { display: flex; animation: marquee 20s linear infinite; }
+    </style>
+</head>
+<body class="overflow-x-hidden bg-[#0a0a0a]">
+
+    <nav class="fixed w-full z-[110] px-8 py-6 flex justify-between items-center transition-all duration-300" id="navbar">
+        <div class="heading-font text-2xl font-extrabold tracking-tighter uppercase">
+            AZAT<span class="text-yellow-500 italic">GARAGE</span>
+        </div>
+
+        <div class="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-[0.2em]">
+            <a href="index.html" class="hover:text-yellow-500 transition">Beranda</a>
+            <a href="tentang.html" class="hover:text-yellow-500 transition">Tentang Kami</a>
+            <a href="layanan.html" class="hover:text-yellow-500 transition">Layanan</a>
+            <a href="galeri.html" class="hover:text-yellow-500 transition">Galeri</a>
+            <a href="kontak.html" class="px-5 py-2 border border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black transition-all duration-300">Hubungi Kami</a>
+        </div>
+
+        <button class="md:hidden text-white relative z-[120] outline-none" id="menu-btn">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </nav>
+
+    <div id="mobile-menu" class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center space-y-8 -translate-y-full transition-transform duration-700 md:hidden">
+        <a href="index.html" class="mobile-link heading-font text-4xl text-yellow-500">BERANDA</a>
+        <a href="tentang.html" class="mobile-link heading-font text-4xl">TENTANG</a>
+        <a href="layanan.html" class="mobile-link heading-font text-4xl">LAYANAN</a>
+        <a href="galeri.html" class="mobile-link heading-font text-4xl">GALERI</a>
+        <a href="kontak.html" class="mobile-link heading-font text-4xl">KONTAK</a>
+    </div>
+
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover opacity-40 scale-110">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-mechanical-parts-of-a-car-in-slow-motion-23131-large.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-black/20"></div>
+        
+        <div class="text-center px-6 relative z-10" data-aos="zoom-out" data-aos-duration="2000">
+            <span class="text-yellow-500 tracking-[1em] uppercase text-[10px] mb-4 block">Mewujudkan Kesempurnaan</span>
+            <h1 class="heading-font text-6xl md:text-[120px] font-bold leading-none tracking-tighter uppercase italic">
+                LEBIH DARI <br> <span class="text-stroke">RESTORASI.</span>
+            </h1>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8 mt-12">
+                <p class="text-gray-400 max-w-xs text-[11px] tracking-widest uppercase leading-loose border-l border-yellow-500 pl-4 text-left">
+                    Bengkel studio spesialis pengecatan dan modifikasi performa dengan standar kompetisi tertinggi.
+                </p>
+                <a href="#layanan" class="border border-white/20 px-10 py-4 rounded-full text-[10px] tracking-widest uppercase hover:bg-white hover:text-black transition">Jelajahi Karya</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="py-10 bg-yellow-500 overflow-hidden border-y border-yellow-600">
+        <div class="marquee-content whitespace-nowrap flex items-center uppercase font-bold text-black tracking-[0.3em] text-xs">
+            <span class="mx-10">• Perbaikan Bodi & Cat</span>
+            <span class="mx-10">• Restorasi Velg Mobil</span>
+            <span class="mx-10">• Peningkatan Performa</span>
+            <span class="mx-10">• Sistem Audio Kustom</span>
+            <span class="mx-10">• Perbaikan Bodi & Cat</span>
+            <span class="mx-10">• Restorasi Velg Mobil</span>
+            <span class="mx-10">• Peningkatan Performa</span>
+            <span class="mx-10">• Sistem Audio Kustom</span>
+        </div>
+    </div>
+
+    <section class="py-24 px-6 border-b border-white/5" id="tentang">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+            <div data-aos="fade-up">
+                <h2 class="heading-font text-5xl text-yellow-500 mb-2">12+</h2>
+                <p class="text-[10px] tracking-widest text-gray-500 uppercase">Tahun Pengalaman</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="100">
+                <h2 class="heading-font text-5xl text-yellow-500 mb-2">850+</h2>
+                <p class="text-[10px] tracking-widest text-gray-500 uppercase">Mobil Terestorasi</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <h2 class="heading-font text-5xl text-yellow-500 mb-2">24</h2>
+                <p class="text-[10px] tracking-widest text-gray-500 uppercase">Penghargaan Kontes</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="300">
+                <h2 class="heading-font text-5xl text-yellow-500 mb-2">100%</h2>
+                <p class="text-[10px] tracking-widest text-gray-500 uppercase">Kepuasan Klien</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="layanan" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-20" data-aos="fade-right">
+                <h2 class="heading-font text-4xl md:text-6xl italic uppercase mb-4">Layanan <span class="text-yellow-500">Unggulan.</span></h2>
+                <p class="text-gray-500 max-w-xl">Kami memadukan teknologi modern dengan keahlian tangan pengrajin untuk hasil yang presisi.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-10 relative overflow-hidden group" data-aos="fade-up">
+                    <div class="mb-10 text-yellow-500 text-4xl"><i class="fa-solid fa-spray-can-sparkles"></i></div>
+                    <h3 class="heading-font text-2xl mb-4 uppercase">Cat Standar Kompetisi</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-8">Pengecatan menggunakan material premium dengan teknik 3-tahap untuk kilau mendalam dan ketahanan cuaca.</p>
+                    <ul class="text-[10px] tracking-widest text-gray-500 uppercase space-y-2">
+                        <li>• Ruang Cat Oven (Spray Booth)</li>
+                        <li>• Sistem Pencocokan Warna</li>
+                        <li>• Pelapis Keramik (Ceramic Coating)</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-10 relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="mb-10 text-yellow-500 text-4xl"><i class="fa-solid fa-gauge-high"></i></div>
+                    <h3 class="heading-font text-2xl mb-4 uppercase">Peningkatan Performa</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-8">Optimalisasi mesin, pengereman, dan suspensi untuk performa maksimal di jalan raya maupun lintasan balap.</p>
+                    <ul class="text-[10px] tracking-widest text-gray-500 uppercase space-y-2">
+                        <li>• Pembangunan Ulang Mesin</li>
+                        <li>• Pengaturan Suspensi</li>
+                        <li>• Pemetaan Ulang ECU (Remapping)</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-10 relative overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="mb-10 text-yellow-500 text-4xl"><i class="fa-solid fa-car-rear"></i></div>
+                    <h3 class="heading-font text-2xl mb-4 uppercase">Studio Velg Kustom</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-8">Restorasi velg pecah, bengkok, atau sekadar ingin mengubah warna dengan pilihan warna ikonik.</p>
+                    <ul class="text-[10px] tracking-widest text-gray-500 uppercase space-y-2">
+                        <li>• Diamond Cut Finishing</li>
+                        <li>• Powder Coating</li>
+                        <li>• Perbaikan & Presisi Velg</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proses" class="py-32 bg-[#080808]">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div class="grid grid-cols-2 gap-4" data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1000" class="rounded-2xl opacity-50 hover:opacity-100 transition duration-500" alt="Detailing">
+                <img src="https://images.unsplash.com/photo-1534349735944-2b3a6f7a268f?q=80&w=1000" class="rounded-2xl mt-12" alt="Painting">
+            </div>
+            <div data-aos="fade-left">
+                <span class="text-yellow-500 uppercase tracking-widest text-[10px] font-bold">Prosedur Operasional Standar</span>
+                <h2 class="heading-font text-4xl md:text-5xl uppercase italic mt-4 mb-10">Bagaimana Kami <br> <span class="text-yellow-500">Bekerja.</span></h2>
+                
+                <div class="space-y-8">
+                    <div class="flex gap-6">
+                        <div class="h-10 w-10 shrink-0 border border-yellow-500 rounded-full flex items-center justify-center text-yellow-500 font-bold">1</div>
+                        <div>
+                            <h4 class="font-bold uppercase text-xs tracking-widest mb-2">Konsultasi & Diagnosa</h4>
+                            <p class="text-gray-500 text-sm">Setiap proyek dimulai dengan diskusi mendalam untuk memahami visi dan kebutuhan teknis kendaraan Anda.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="h-10 w-10 shrink-0 border border-yellow-500 rounded-full flex items-center justify-center text-yellow-500 font-bold">2</div>
+                        <div>
+                            <h4 class="font-bold uppercase text-xs tracking-widest mb-2">Pengerjaan Presisi</h4>
+                            <p class="text-gray-500 text-sm">Tim ahli kami mengerjakan setiap detail menggunakan alat bersertifikat dan material kelas dunia.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="h-10 w-10 shrink-0 border border-yellow-500 rounded-full flex items-center justify-center text-yellow-500 font-bold">3</div>
+                        <div>
+                            <h4 class="font-bold uppercase text-xs tracking-widest mb-2">Kontrol Kualitas</h4>
+                            <p class="text-gray-500 text-sm">Kendaraan diuji secara ketat sebelum diserahkan kembali. Kami menjamin hasil akhir yang sempurna.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+           <footer class="py-10 text-center border-t border-white/5">
+        <p class="text-[10px] tracking-[0.5em] text-gray-600 uppercase">&copy; 2026 Azat Garage. Keunggulan Tanpa Kompromi.</p>
+    </footer>
+        
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // 1. Inisialisasi AOS
+        AOS.init({ 
+            duration: 1000, 
+            once: true,
+            easing: 'ease-out-quad'
+        });
+
+        const nav = document.getElementById('navbar');
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        // 2. Fungsi Buka/Tutup Menu
+        function toggleMenu() {
+            const isOpen = !mobileMenu.classList.contains('-translate-y-full');
+
+            if (!isOpen) {
+                mobileMenu.classList.remove('-translate-y-full');
+                menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); 
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                mobileMenu.classList.add('-translate-y-full');
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); 
+                document.body.style.overflow = 'auto'; 
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('-translate-y-full');
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // 3. Efek Scroll Navigasi
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('nav-scrolled', 'py-4');
+                nav.classList.remove('py-6');
+            } else {
+                nav.classList.remove('nav-scrolled', 'py-4');
+                nav.classList.add('py-6');
+            }
+        });
+
+        // 4. Animasi Penghitung Angka
+        const counters = document.querySelectorAll('#tentang h2');
+        const speed = 100;
+
+        const runCounter = () => {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.innerText.replace(/[^0-9]/g, '');
+                    const count = +counter.getAttribute('data-count') || 0;
+                    const increment = target / speed;
+
+                    if (count < target) {
+                        const nextCount = Math.ceil(count + increment);
+                        counter.setAttribute('data-count', nextCount);
+                        const suffix = counter.innerText.includes('+') ? '+' : (counter.innerText.includes('%') ? '%' : '');
+                        counter.innerText = nextCount + suffix;
+                        setTimeout(updateCount, 20);
+                    } else {
+                        const finalSuffix = counter.innerText.includes('+') ? '+' : (counter.innerText.includes('%') ? '%' : '');
+                        counter.innerText = target + finalSuffix;
+                    }
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    if(entries[0].isIntersecting) {
+                        updateCount();
+                        observer.unobserve(counter);
+                    }
+                }, { threshold: 0.5 });
+                
+                observer.observe(counter);
+            });
+        };
+
+        runCounter();
+    </script>
+</body>
+</html>
