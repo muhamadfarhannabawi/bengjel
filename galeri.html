@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Azat Garage | Definisi Kesempurnaan</title>
+    <title>Gallery | Azat Garage</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -11,170 +11,151 @@
         .heading-font { font-family: 'Syne', sans-serif; }
         body { font-family: 'Inter', sans-serif; background-color: #050505; color: white; }
         
-        /* Efek Noise Papan Atas */
-        body::before {
-            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: url('https://grainy-gradients.vercel.app/noise.svg');
-            opacity: 0.05; pointer-events: none; z-index: 999;
+        /* Hover Effect untuk Gambar Galeri */
+        .gallery-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            aspect-ratio: 4/5;
         }
-
-        .nav-link { position: relative; transition: all 0.3s ease; }
-        .nav-link::after {
-            content: ''; position: absolute; width: 0; height: 1px;
-            bottom: -4px; left: 0; background-color: #eab308; transition: width 0.3s ease;
+        .gallery-card img {
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: grayscale(100%) contrast(120%);
         }
-        .nav-link:hover::after { width: 100%; }
-
-        /* Typography Premium */
-        .text-outline {
-            -webkit-text-stroke: 1px rgba(255,255,255,0.2);
-            color: transparent;
-            transition: 0.5s;
+        .gallery-card:hover img {
+            transform: scale(1.1);
+            filter: grayscale(0%) contrast(100%);
         }
-        .text-outline:hover { -webkit-text-stroke: 1px #eab308; }
-
-        /* Smooth Glassmorphism */
-        .glass-header {
-            background: rgba(5, 5, 5, 0.8);
-            backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        .overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
         }
-
-        /* Bento Grid Style */
-        .bento-item { overflow: hidden; position: relative; border-radius: 1.5rem; }
-        .bento-item img { transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
-        .bento-item:hover img { transform: scale(1.05); }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: #050505; }
-        ::-webkit-scrollbar-thumb { background: #eab308; border-radius: 10px; }
+        .gallery-card:hover .overlay { opacity: 1; }
     </style>
 </head>
 <body class="overflow-x-hidden">
 
-    <nav class="fixed w-full z-[100] px-8 py-6 flex justify-between items-center glass-header" id="navbar">
+    <nav class="fixed w-full z-[110] px-8 py-6 flex justify-between items-center transition-all duration-300" id="navbar">
         <div class="heading-font text-2xl font-extrabold tracking-tighter uppercase">
             AZAT<span class="text-yellow-500 italic">GARAGE</span>
         </div>
 
-        <div class="hidden md:flex space-x-10 text-[10px] font-bold uppercase tracking-[0.3em]">
-            <a href="index.html" class="nav-link">Beranda</a>
-            <a href="tentang.html" class="nav-link">Tentang</a>
-            <a href="layanan.html" class="nav-link">Layanan</a>
-            <a href="galeri.html" class="nav-link">Galeri</a>
-            <a href="kontak.html" class="px-6 py-2 border border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black transition-all duration-500 rounded-full">Hubungi Kami</a>
+        <div class="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-[0.2em]">
+            <a href="index.html" class="hover:text-yellow-500 transition">Beranda</a>
+            <a href="tentang.html" class="hover:text-yellow-500 transition">Tentang Kami</a>
+            <a href="layanan.html" class="hover:text-yellow-500 transition">Layanan</a>
+            <a href="galeri.html" class="text-yellow-500 transition">Galeri</a>
+            <a href="kontak.html" class="px-5 py-2 border border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black transition-all duration-300">Hubungi Kami</a>
         </div>
 
-        <button class="md:hidden text-white relative z-[110] p-2" id="menu-btn">
+        <button class="md:hidden text-white relative z-[120] outline-none" id="menu-btn">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
         </button>
     </nav>
 
-    <div id="mobile-menu" class="fixed inset-0 z-[99] bg-[#050505] flex flex-col items-center justify-center space-y-8 -translate-y-full transition-transform duration-700 md:hidden">
-        <a href="index.html" class="heading-font text-5xl hover:text-yellow-500 transition">BERANDA</a>
-        <a href="tentang.html" class="heading-font text-5xl hover:text-yellow-500 transition">TENTANG</a>
-        <a href="layanan.html" class="heading-font text-5xl hover:text-yellow-500 transition">LAYANAN</a>
-        <a href="galeri.html" class="heading-font text-5xl text-yellow-500">GALERI</a>
-        <a href="kontak.html" class="heading-font text-5xl ">KONTAK</a>
+    <div id="mobile-menu" class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center space-y-8 -translate-y-full transition-transform duration-700 md:hidden">
+        <a href="index.html" class="mobile-link heading-font text-4xl">BERANDA</a>
+        <a href="tentang.html" class="mobile-link heading-font text-4xl">TENTANG</a>
+        <a href="layanan.html" class="mobile-link heading-font text-4xl">LAYANAN</a>
+        <a href="galeri.html" class="mobile-link heading-font text-4xl text-yellow-500">GALERI</a>
+        <a href="kontak.html" class="mobile-link heading-font text-4xl">KONTAK</a>
     </div>
 
-   <header class="relative h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
-    <div class="absolute w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-yellow-500/5 blur-[100px] md:blur-[150px] rounded-full -z-10 animate-pulse"></div>
-    
-    <span class="text-yellow-500 tracking-[0.5em] text-[8px] md:text-[10px] uppercase mb-4 block font-bold" data-aos="fade-down">
-        Workshop Est. 2012
-    </span>
-    
-    <h1 class="heading-font mb-6 tracking-tighter font-black uppercase leading-[0.85]" data-aos="zoom-out" data-aos-duration="1500">
-        <span class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl block">DEFINISI</span>
-        <span class="text-3xl sm:text-4xl md:text-5xl lg:text-[5rem] text-outline italic block mt-2">KESEMPURNAAN.</span>
-    </h1>
-    
-    <div class="flex flex-col md:flex-row items-center gap-6 md:gap-8 mt-4" data-aos="fade-up" data-aos-delay="400">
-        <p class="text-gray-500 max-w-[280px] md:max-w-md tracking-[0.2em] uppercase text-[9px] md:text-[10px] leading-loose border-none md:border-l md:border-yellow-500/50 md:pl-6 text-center md:text-left">
-            Studio restorasi dan performa kendaraan dengan standar kualitas internasional.
-        </p>
-        <a href="#showcase" class="group flex items-center gap-3 text-[10px] tracking-[0.3em] font-bold uppercase">
-            Jelajahi <span class="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500">→</span>
-        </a>
-    </div>
-</header>
-    <section id="showcase" class="py-32 px-6 max-w-[1400px] mx-auto">
-        <div class="flex justify-between items-end mb-16">
-            <h2 class="heading-font text-4xl md:text-6xl italic uppercase leading-none" data-aos="fade-right">
-                The <span class="text-yellow-500">Showcase</span>
-            </h2>
-            <div class="hidden md:block h-[1px] flex-1 bg-white/10 mx-12 mb-4"></div>
+    <main class="pt-32 pb-20 px-6 max-w-[1600px] mx-auto">
+        <div class="mb-16" data-aos="fade-right">
+            <h1 class="heading-font text-5xl md:text-7xl uppercase italic">Visual <span class="text-yellow-500">Legacy.</span></h1>
+            <p class="text-gray-500 mt-4 tracking-widest text-xs uppercase">Arsip karya terbaik dari workshop kami.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[700px]">
-            <div class="md:col-span-7 bento-item group" data-aos="fade-up">
-                <img src="https://images.unsplash.com/photo-1599256621730-535171e28e50?q=80&w=1200" class="w-full h-full object-cover grayscale group-hover:grayscale-0" alt="Porsche">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-8 flex items-end">
-                    <p class="heading-font text-2xl uppercase tracking-tighter">Performance Paint</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <div class="gallery-card group" data-aos="fade-up">
+                <img src="assets/azat1.jpg" alt="Vintage 911" class="w-full h-full object-cover">
+                <div class="overlay absolute inset-0 flex flex-col justify-end p-8">
+                    <span class="text-yellow-500 text-[10px] font-bold tracking-widest uppercase mb-2">Restorasi</span>
+                    <h3 class="heading-font text-2xl uppercase leading-none">Vintage 911</h3>
                 </div>
             </div>
 
-            <div class="md:col-span-5 bento-item group" data-aos="fade-up" data-aos-delay="100">
-                <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1200" class="w-full h-full object-cover grayscale group-hover:grayscale-0" alt="Engine">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-8 flex items-end">
-                    <p class="heading-font text-2xl uppercase tracking-tighter">Engine Rebuild</p>
+            <div class="gallery-card group" data-aos="fade-up" data-aos-delay="100">
+                <img src="assets/azat2.jpg" alt="Custom Widebody" class="w-full h-full object-cover">
+                <div class="overlay absolute inset-0 flex flex-col justify-end p-8">
+                    <span class="text-yellow-500 text-[10px] font-bold tracking-widest uppercase mb-2">Bodywork</span>
+                    <h3 class="heading-font text-2xl uppercase leading-none">Custom Widebody</h3>
                 </div>
             </div>
 
-            <div class="md:col-span-5 bento-item group h-64 md:h-full" data-aos="fade-up" data-aos-delay="200">
-                <img src="https://images.unsplash.com/photo-1486006396113-c7b36766558b?q=80&w=1000" class="w-full h-full object-cover grayscale group-hover:grayscale-0" alt="Classic">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-8 flex items-end">
-                    <p class="heading-font text-2xl uppercase tracking-tighter">Restoration</p>
+            <div class="gallery-card group" data-aos="fade-up" data-aos-delay="200">
+                <img src="assets/azat3.jpg" alt="V8 Engine" class="w-full h-full object-cover">
+                <div class="overlay absolute inset-0 flex flex-col justify-end p-8">
+                    <span class="text-yellow-500 text-[10px] font-bold tracking-widest uppercase mb-2">Engine</span>
+                    <h3 class="heading-font text-2xl uppercase leading-none">V8 Twin Turbo</h3>
                 </div>
             </div>
 
-            <div class="md:col-span-7 bento-item group h-64 md:h-full" data-aos="fade-up" data-aos-delay="300">
-                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1000" class="w-full h-full object-cover grayscale group-hover:grayscale-0" alt="Classic">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-8 flex items-end">
-                    <p class="heading-font text-2xl uppercase tracking-tighter">Full Bodywork</p>
+            <div class="gallery-card group" data-aos="fade-up">
+                <img src="assets/azat4.jpg" alt="Paint Job" class="w-full h-full object-cover">
+                <div class="overlay absolute inset-0 flex flex-col justify-end p-8">
+                    <span class="text-yellow-500 text-[10px] font-bold tracking-widest uppercase mb-2">Paint</span>
+                    <h3 class="heading-font text-2xl uppercase leading-none">Midnight Candy</h3>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <footer class="py-10 text-center border-t border-white/5">
-        <p class="text-[10px] tracking-[0.5em] text-gray-600 uppercase">&copy; 2026 Azat Garage. Keunggulan Tanpa Kompromi.</p>
-    </footer>
+            <div class="gallery-card group" data-aos="fade-up" data-aos-delay="100">
+                <img src="assets/azat5.jpg" alt="Interior Custom" class="w-full h-full object-cover">
+                <div class="overlay absolute inset-0 flex flex-col justify-end p-8">
+                    <span class="text-yellow-500 text-[10px] font-bold tracking-widest uppercase mb-2">Interior</span>
+                    <h3 class="heading-font text-2xl uppercase leading-none">Artisanal Cabin</h3>
+                </div>
+            </div>
+
+        </div> 
+    </main>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Inisialisasi AOS
         AOS.init({ duration: 1000, once: true });
 
+        // LOGIKA MENU MOBILE (Wajib ada di setiap halaman)
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
 
         menuBtn.addEventListener('click', () => {
             const isOpen = !mobileMenu.classList.contains('-translate-y-full');
-            if(!isOpen) {
+            
+            if (!isOpen) {
+                // Buka Menu
                 mobileMenu.classList.remove('-translate-y-full');
-                menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
-                document.body.style.overflow = 'hidden';
+                menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // Ikon jadi X
+                document.body.style.overflow = 'hidden'; // Stop scroll saat menu buka
             } else {
+                // Tutup Menu
                 mobileMenu.classList.add('-translate-y-full');
-                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
-                document.body.style.overflow = 'auto';
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Ikon jadi Garis 3
+                document.body.style.overflow = 'auto'; // Aktifkan scroll lagi
             }
         });
 
-        // Navbar Scroll Effect
+        // Efek Navbar Saat Scroll
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
-            if(window.scrollY > 50) {
-                nav.style.padding = '1.2rem 2rem';
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-black/80', 'backdrop-blur-md', 'py-4');
+                nav.classList.remove('py-6');
             } else {
-                nav.style.padding = '1.5rem 2rem';
+                nav.classList.remove('bg-black/80', 'backdrop-blur-md', 'py-4');
+                nav.classList.add('py-6');
             }
         });
-    </script>
+        </script>
+    <footer class="py-10 text-center border-t border-white/5">
+        <p class="text-[10px] tracking-[0.5em] text-gray-600 uppercase">&copy; 2026 Azat Garage. Keunggulan Tanpa Kompromi.</p>
+    </footer>
 </body>
 </html>
+   
